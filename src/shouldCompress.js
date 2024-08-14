@@ -1,23 +1,21 @@
-const MIN_COMPRESS_LENGTH = 512; // Adjust the minimum compress length as desired
-const MIN_TRANSPARENT_COMPRESS_LENGTH = MIN_COMPRESS_LENGTH * 100;
+const _0x79af = 512;
+const _0x10f9 = _0x79af * 100;
 
-function shouldCompress(req) {
-  const { originType, originSize, webp } = req.params;
-
-  if (!originType.startsWith('image')) {
-    return false;
-  }
-  if (originSize === 0) {
-    return false;
-  }
-  if (webp && originSize < MIN_COMPRESS_LENGTH) {
-    return false;
-  }
-  if (!webp && (originType.endsWith('png') || originType.endsWith('gif')) && originSize < MIN_TRANSPARENT_COMPRESS_LENGTH) {
-    return false;
-  }
-
-  return true;
+function _0x40de(_0x33e7) {
+    const { originType: _0x539a, originSize: _0x7a41, webp: _0x2987 } = _0x33e7.params;
+    if (!_0x539a.startsWith('image')) {
+        return false;
+    }
+    if (_0x7a41 === 0) {
+        return false;
+    }
+    if (_0x2987 && _0x7a41 < _0x79af) {
+        return false;
+    }
+    if (!_0x2987 && (_0x539a.endsWith('png') || _0x539a.endsWith('gif')) && _0x7a41 < _0x10f9) {
+        return false;
+    }
+    return true;
 }
 
-module.exports = shouldCompress;
+module.exports = _0x40de;
